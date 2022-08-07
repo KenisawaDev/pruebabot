@@ -21,9 +21,9 @@ global.autoRecord = false
 global.available = true 
 
 
-global.vidmenu = fs.readFileSync("./Media/theme/bot.mp4") 
+global.vidmenu = fs.readFileSync("./media/theme/Cheems-bot.mp4") //gif and video menu
 
-
+//documents variants
 global.doc1 = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
 global.doc2 = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 global.doc3 = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
@@ -63,10 +63,11 @@ global.packname = " ‎𝘚𝘛𝘐𝘊𝘒𝘌𝘙  𝘉𝘠"
 global.author = " ‎𝓝𝓸𝓿𝓪𝓫𝓸𝓽-ℳ𝓓"
 
 
-global.thum = fs.readFileSync("./Media/theme/bot.jpg") 
-global.log0 = fs.readFileSync("./Media/theme/bot.jpg") 
-global.err4r = fs.readFileSync("./Media/theme/bot.jpg") 
-global.thumb = fs.readFileSync("./Media/theme/bot.jpg") 
+//Bot theme media
+global.thum = fs.readFileSync("./media/theme/cheemspic.jpg") //ur thumb pic
+global.log0 = fs.readFileSync("./media/theme/cheemspic.jpg") //ur logo pic
+global.err4r = fs.readFileSync("./media/theme/cheemspic.jpg") //ur error pic
+global.thumb = fs.readFileSync("./media/theme/cheemspic.jpg") //ur thumb pic
 
 
 global.premium = ['56999448163'] 
@@ -123,7 +124,7 @@ global.mess = {
    umpanawal: 5,
    potionawal: 1
 }
-global.thumb = fs.readFileSync('./Media/theme/bot.jpg')
+global.thumb = fs.readFileSync('./media/theme/cheemspic.jpg')
 global.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='

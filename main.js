@@ -7988,13 +7988,13 @@ break
             case 'shio': {
             	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
-                if (!text) return reply(`Ejemplo : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`)
+                if (!text) return reply(`Example : ${prefix + command} tikus\n\nNote : For Detail https://primbon.com/shio.htm`)
                 let anu = await primbon.shio(text)
                 if (anu.status == false) return reply(anu.message)
                 XeonBotInc.sendText(m.chat, `${themeemoji} *Results :* ${anu.message}`, m)
             }
-            break
-            case 'slot':	
+           break
+        case 'slot':	
 	   if (isBan) return  reply(mess.ban)
  const pb = ['100','50','50','50']
 const pv = pb[Math.floor(Math.random() * pb.length)]
@@ -8119,7 +8119,7 @@ case 'ttaud':{
     XeonBotInc.sendMessage(from, { audio: { url: xeonytiktokaudio }, mimetype: 'audio/mp4' }, { quoted: m })
    }
 break
-case 'music': case 'play': case 'song': case 'ytplay': {
+	case 'music': case 'play': case 'song': case 'ytplay': {
    if (isBan) return replay(mess.ban)	 			
 if (isBanChat) return replay(mess.banChat)
 if (!q) return reply('𝚀𝚞𝚎 𝚎𝚜𝚝𝚊 𝚋𝚞𝚜𝚌𝚊𝚍𝚘?')
@@ -8166,15 +8166,16 @@ sourceUrl: anu.url
 XeonBotInc.sendMessage(m.chat, buttonMessage, { quoted: m })
 }
 break
+//----DOWNLOAD FEATURES---\\
 case 'play2': {
 let { yta } = require('./lib/y2mate')
-if (!text)  reply(`que está buscado?`)
+if (!text)  reply(`𝙴𝚓𝚎𝚖𝚙𝚕𝚘 : ${prefix + command}  𝙱𝚊𝚍 𝙱𝚞𝚗𝚗𝚢`)
 let yts = require("yt-search")
 let search = await yts(text)
 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
 let buf = await getBuffer(anu.thumbnail)
 let caption = `
-      *| 𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝚙𝚕𝚊𝚢 |*
+        *| 𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝚙𝚕𝚊𝚢 |*
 
       0.07━━◉━━━━━━━━━3.28
         🔂   ⏪   ⏸️     ⏩  🎵
@@ -8186,8 +8187,7 @@ ${global.themeemoji} 𝚂𝚞𝚋𝚒𝚍𝚘𝚜 : ${anu.ago}
 ${global.themeemoji} 𝙰𝚞𝚝𝚘𝚛 : ${anu.author.name}
 ${global.themeemoji} 𝙲𝚊𝚗𝚊𝚕 : ${anu.author.url}
 ${global.themeemoji} 𝙳𝚎𝚜𝚌𝚛𝚒𝚙𝚌𝚒𝚘𝚗 : ${anu.description}
-${global.themeemoji} 𝚄𝚁𝙻 : ${anu.url}
-`
+${global.themeemoji} 𝚄𝚁𝙻 : ${anu.url}`,
 message = await prepareWAMessageMedia({ image : { url: anu.thumbnail } }, { upload:   XeonBotInc.waUploadToServer })
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 templateMessage: {
@@ -8203,7 +8203,7 @@ url: `${anu.url}`
 }, {
 urlButton: {
 displayText: `𝙶𝚒𝚝𝚋𝚞𝚋`, 
-url: `https://github.com`
+url: `https://github.com/`
 }
 }, {
 quickReplyButton: {
@@ -8212,8 +8212,8 @@ id: `${prefix}ytmp5 ${anu.url}`
 }
 }, {
 quickReplyButton: {
-displayText: `DOCUMENTO`,
-id: `${prefix}ytmp3 ${anu.url}`
+displayText: `𝙳𝚘𝚌𝚞𝚖𝚎𝚗𝚝𝚘𝚜`,
+id: `${prefix}ytdl ${anu.url}`
 }
 },{
 quickReplyButton: {
@@ -8228,7 +8228,6 @@ id: `${prefix}audio ${anu.url}`
 XeonBotInc.relayMessage(m.chat, template.message, { messageId: template.key.id })
 }
 break
-//----DOWNLOAD FEATURES---\\
 case 'play4':  {   
 if  (!text) reply('𝙴𝚓𝚎𝚖𝚙𝚕𝚘 : story wa anime')
 let yts = require("yt-search")
@@ -8353,10 +8352,58 @@ mediaUrl:`https://youtu.be/KNu-gr2h7bo`,
 sourceUrl: `https://youtu.be/KNu-gr2h7bo` }}}, {quoted: m})
 }
 break
+case 'ytmp5': case 'ytvideo': {
+let { ytv } = require('./lib/y2mate')
+if (!text) throw `𝙴𝚓𝚎𝚖𝚙𝚕𝚘 : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
+if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*𝚎𝚛𝚛𝚘𝚛, 𝚒𝚗𝚝𝚎𝚗𝚝𝚎 𝚍𝚎 𝚗𝚞𝚎𝚟𝚘*'
+let quality = args[1] ? args[1] : '360p'
+let media = await ytv(text, quality)
+if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
+var capti = `
+    ⟮ _*💎𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝚍𝚎𝚜𝚌𝚊𝚛𝚐𝚊💎*_ ⟯ 
+   
+0.02━◉━━━━━━━━━━━━3.26
+      🔂   ⏪   ⏸️     ⏩  🎵\n\n*💎𝚃𝚒𝚝𝚞𝚕𝚘* : ${media.title}\n*💎𝙿𝚎𝚜𝚘* : ${media.filesizeF}\n*💎𝙴𝚡𝚝* : MP3\n💎𝚄𝚁𝙻 : ${isUrl(text)}\n\n\n*𝚎𝚜𝚙𝚎𝚛𝚎 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘*`
+var buf = await getBuffer(media.thumb)
+XeonBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
+XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `*𝗔𝗾𝘂𝗶 𝘁𝗶𝗲𝗻𝗲🔰*` ,  quoted: m,contextInfo: { externalAdReply:{
+title:"dj bot",
+body:"DRIPS",
+showAdAttribution: true,
+mediaType:2,
+thumbnail: fs.readFileSync(`./drips.jpg`) ,
+mediaUrl:`https://youtu.be/KNu-gr2h7bo`, 
+sourceUrl: `https://youtu.be/KNu-gr2h7bo` }}}, {quoted: m})
+}
+break
+case 'audio': {    
+let { yta } = require('./lib/y2mate')
+if (!text) throw `𝙴𝚓𝚎𝚖𝚙𝚕𝚘 : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
+if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*𝚎𝚛𝚛𝚘𝚛, 𝚒𝚗𝚝𝚎𝚗𝚝𝚎 𝚍𝚎 𝚗𝚞𝚎𝚟𝚘*'    
+let quality = args[1] ? args[1] : '128kbps'
+let media = await yta(text, quality)
+if (media.filesize >= 100000) return m.reply('*𝙽𝚘 𝚝𝚒𝚎𝚗𝚎 𝚕𝚒𝚖𝚒𝚝𝚎* '+util.format(media))
+let caption = `
+    ⟮ _*💎𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝚍𝚎𝚜𝚌𝚊𝚛𝚐𝚊💎*_ ⟯ 
+   
+0.02━◉━━━━━━━━━━━━3.26
+      🔂   ⏪   ⏸️     ⏩  🎵*\n\n*💎𝚃𝚒𝚝𝚞𝚕𝚘 :* ${media.title}\n*💎𝙿𝚎𝚜𝚘 :* ${media.filesizeF}\n*💎𝙴𝚡𝚝 :* MP3\n*💎URL :* ${isUrl(text)}\n*𝙴𝚜𝚙𝚎𝚛𝚎 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘*`
+buf = await getBuffer(media.thumb)
+XeonBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*𝙴𝚛𝚛𝚘, 𝚒𝚗𝚝𝚎𝚗𝚝𝚎 𝚍𝚎 𝚗𝚞𝚎𝚟𝚘*'))   
+XeonBotInc.sendMessage(m.chat, {audio:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
+title:"dj bot",
+body:"DRIPS",
+showAdAttribution: true,
+mediaType:2,
+thumbnail: fs.readFileSync(`./drips.jpg`) ,
+mediaUrl:`https://youtu.be/KNu-gr2h7bo`, 
+sourceUrl: `https://youtu.be/KNu-gr2h7bo` }}}, {quoted: m})
+}
+break
 case 'ytvd': {
    if (isBan) return replay(mess.ban)	 			
 if (isBanChat) return replay(mess.banChat)
-XeonBotInc.sendMessage(from, {video:{url:args[0]}, mimetype:"video/mp4", caption:"Listo✔️", contextInfo:{externalAdreplay:{
+XeonBotInc.sendMessage(from, {video:{url:args[0]}, mimetype:"video/mp4", caption:"𝙰𝚚𝚞𝚒 𝚝𝚒𝚎𝚗𝚎🔰", contextInfo:{externalAdreplay:{
 title:`${global.botname}`,
 body:`${global.botname}`,
 thumbnail: log0,
@@ -8377,55 +8424,6 @@ mediaType:2,
 mediaUrl: `${global.websitex}`,
 sourceUrl: `${global.websitex}`
 }}}, {quoted:m})
-}
-break
-break
-case 'ytmp5': case 'ytvideo': {
-let { ytv } = require('./lib/y2mate')
-if (!text) throw `Ejemplo : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`
-if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'
-let quality = args[1] ? args[1] : '360p'
-let media = await ytv(text, quality)
-if (media.filesize >= 100000) return m.reply('*el archivo es muy pesado imposible de descarga* '+util.format(media))
-var capti = `
-    ⟮ _*💎ʏᴏᴜᴛᴜʙᴇ descarga💎*_ ⟯ 
-   
-0.02━◉━━━━━━━━━━━━3.26
-      🔂   ⏪   ⏸️     ⏩  🎵\n\n*💎𝚃𝚒𝚝𝚞𝚕𝚘* : ${media.title}\n*💎𝙿𝚎𝚜𝚘* : ${media.filesizeF}\n*💎URL* : ${isUrl(text)}\n*💎𝙴𝚡𝚝* : MP3\n*💎𝚁𝚎𝚜𝚘𝚕𝚞𝚝𝚒𝚘𝚗* : ${args[1] || '360p'}\n\n*𝚎𝚜𝚙𝚎𝚛𝚎 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘*`
-var buf = await getBuffer(media.thumb)
-XeonBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${capti}` }, { quoted: m })
-XeonBotInc.sendMessage(m.chat, { video: { url: media.dl_link }, jpegThumbnail:buf, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `𝗔𝗾𝘂𝗶 𝘁𝗶𝗲𝗻𝗲🔰` ,  quoted: m,contextInfo: { externalAdReply:{
-title:"dj bot",
-body:"DRIPS",
-showAdAttribution: true,
-mediaType:2,
-thumbnail: fs.readFileSync(`./drips.jpg`) ,
-mediaUrl:`https://youtu.be/KNu-gr2h7bo`, 
-sourceUrl: `https://youtu.be/KNu-gr2h7bo` }}}, {quoted: m})
-}
-break
-case 'audio': {    
-let { yta } = require('./lib/y2mate')
-if (!text) throw `Ejemplo : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`
-if (!isUrl(args[0]) && !args[0].includes('youtube.com')) throw '*The link you provided is not valid*'    
-let quality = args[1] ? args[1] : '128kbps'
-let media = await yta(text, quality)
-if (media.filesize >= 100000) return m.reply('*File Over Limit* '+util.format(media))
-let caption = `
-    ⟮ _*💎𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝚍𝚎𝚜𝚌𝚊𝚛𝚐𝚊💎*_ ⟯ 
-   
-0.02━◉━━━━━━━━━━━━3.26
-      🔂   ⏪   ⏸️     ⏩  🎵*\n\n*💎𝚃𝚒𝚝𝚞𝚕𝚘 :* ${media.title}\n*💎𝙿𝚎𝚜𝚘 :* ${media.filesizeF}\n*💎URL :* ${isUrl(text)}\n*💎𝙴𝚡𝚝 :* MP3\n*💎𝚁𝚎𝚜𝚘𝚕𝚞𝚝𝚒𝚘𝚗 :* ${args[1] || '128kbps'}\n\n*𝚎𝚜𝚙𝚎𝚛𝚎 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘*`
-buf = await getBuffer(media.thumb)
-XeonBotInc.sendMessage(m.chat, { image: { url: media.thumb }, jpegThumbnail:buf, caption: `${caption}` }, { quoted: m }).catch((err) => m.reply('*𝚎𝚛𝚛𝚘𝚛, 𝚒𝚗𝚝𝚎𝚗𝚝𝚎 𝚍𝚎 𝚗𝚞𝚎𝚟𝚘*'))   
-XeonBotInc.sendMessage(m.chat, {audio:{url:media.dl_link}, mimetype:"audio/mpeg", fileName: `${media.title}.mp3`,  quoted: m, contextInfo: { externalAdReply:{
-title:"dj bot",
-body:"DRIPS",
-showAdAttribution: true,
-mediaType:2,
-thumbnail: fs.readFileSync(`./drips.jpg`) ,
-mediaUrl:`https://youtu.be/KNu-gr2h7bo`, 
-sourceUrl: `https://youtu.be/KNu-gr2h7bo` }}}, {quoted: m})
 }
 break
             case 'ytdl': {
@@ -8966,6 +8964,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                 `.trim()
                 reply(respon)
             }
+            break
 break
 case 'estado': case 'infobot': case 'estadobot': case 'status': case 'estadodelbot': case 'botinfo': {
 	if (isBan) return reply(mess.ban)	 			
@@ -10847,35 +10846,6 @@ break
                         reply(String(e))
                     }
                 }
-                if (m.sender.startsWith('258' || '240' || '91' || '357' || '359' || '240' || '234' || '212' || '213' || '233' || '258' || '297' || '350' || '371' || '380' || '972')) {
-replay('*Antifakes activado, lo siento pero no sé permiten números fakes en este grupo.*👋')
-if (!AntiArabe) return
-XeonBotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-/*                        if (m.sender.startsWith('972' || '972')) {
-replay('*Antifakes activado, lo siento pero no sé permiten números fakes en este grupo.*👋')
-cnf.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-                        if (m.sender.startsWith('258' || '258')) {
-replay('*Antifakes activado, lo siento pero no sé permiten números fakes en este grupo.*👋')
-cnf.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-                        if (m.sender.startsWith('258' || '258')) {
-replay('*Antifakes activado, lo siento pero no sé permiten números fakes en este grupo.*👋')
-cnf.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-                        if (m.sender.startsWith('258' || '258')) {
-replay('*Antifakes activado, lo siento pero no sé permiten números fakes en este grupo.*👋')
-cnf.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-                        if (m.sender.startsWith('258' || '258')) {
-replay('*Antifakes activado, lo siento pero no sé permiten números fakes en este grupo.*👋')
-cnf.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-                        if (m.sender.startsWith('258' || '258')) {
-replay('*Antifakes activado, lo siento pero no sé permiten números fakes en este grupo.*👋')
-cnf.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}*/
 
                 if (budy.startsWith('>')) {
                     if (!isCreator) return reply(mess.owner)

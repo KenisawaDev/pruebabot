@@ -1,7 +1,7 @@
 {
-  "name": "ConfuBot-MD5",
-  "version": "5.0.0",
-  "description": "Bot automatizado de whatsapp-md creado usando nodejs",
+  "name": "CheemsBot-MD",
+  "version": "4.0.0",
+  "description": "Automated whatsapp md bot created using nodejs",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -14,16 +14,13 @@
     "base",
     "baileys-md",
     "bot",
-    "confu",
-    "confubot",
-    "confubot-md",
     "bot-md",
     "multi-device"
   ],
-  "author": "ConfuMods",
+  "author": "Xeon",
   "license": "MIT",
   "dependencies": {
-    "@adiwajshing/baileys": "^4.1.0",
+    "@adiwajshing/baileys": "^4.3.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "^2.0.0",
     "@shineiichijo/marika": "^2.0.2",
@@ -37,7 +34,6 @@
     "crypto": "^1.0.1",
     "tod-api": "^1.0.5",
     "file-type": "^16.5.3",
-    "figlet": "^1.5.2",
     "fluent-ffmpeg": "^2.1.2",
     "fs": "0.0.1-security",
     "got": "^11.8.3",
@@ -79,10 +75,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Confusion245/ConfuBot-MD5.git"
+    "url": "git+https://github.com/DGXeon/CheemsBot-MD4.git"
   },
   "bugs": {
-    "url": "https://github.com/Confusion245/ConfuBot-MD5/issues"
+    "url": "https://github.com/DGXeon/CheemsBot-MD4/issues"
   },
-  "homepage": "https://github.com/Confusion245/ConfuBot-MD5#readme"
+  "homepage": "https://github.com/DGXeon/CheemsBot-MD4#readme"
 }
